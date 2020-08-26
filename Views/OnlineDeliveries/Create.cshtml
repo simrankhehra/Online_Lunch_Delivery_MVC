@@ -1,0 +1,50 @@
+﻿@model Online_Lunch_Delivery_MVC.Models.OnlineDelivery
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Online Delivery</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DeliveryAgentId" class="control-label"></label>
+                <select asp-for="DeliveryAgentId" class="form-control" asp-items="ViewBag.DeliveryAgentId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="LunchPackId" class="control-label"></label>
+                <select asp-for="LunchPackId" class="form-control" asp-items="ViewBag.LunchPackId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfPacks" class="control-label"></label>
+                <input asp-for="NumberOfPacks" class="form-control" />
+                <span asp-validation-for="NumberOfPacks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-dark">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
